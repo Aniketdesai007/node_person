@@ -1,5 +1,12 @@
 const mongoose=require('mongoose');
-mongoose.connect('mongodb://localhost:27017/Persondatabase');
+require('dotenv').config();
+const dataurl=process.env.databaseurl;
+//const mongooseurllocal='mongodb://localhost:27017/Persondatabase';
+const mongooseurl=dataurl;
+mongoose.connect(mongooseurl,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
 const db=mongoose.connection;
 
 
